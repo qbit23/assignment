@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres_db:
+    image: postgres:latest
+    container_name: postgres_db_machnet
+    environment:
+      POSTGRES_USER: machnet_admin
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data-machnet:/var/lib/postgresql/data
+  machnet_server:
+    build:
+      context: server/
+      dockerfile: Dockerfile
+    container_name: machnet_server
+    ports:
+      - "8000:8080"
+    environment:
+      DB_HOST: postgres
+      DB_PORT: "5432"
+      DB_USER: machnet_admin
+      DB_PASSWORD: password
+      DB_NAME: mydatabase
+volumes:
+  postgres-data-machnet:
