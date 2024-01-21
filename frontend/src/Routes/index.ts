@@ -1,4 +1,4 @@
-import { Home } from "../component/Dashboard/Home"
+import Transactions from "../component/Dashboard/Transactions"
 import Error404 from "../component/common/ErrorComponent"
 
 export const dashboardRoutes=[{
@@ -10,8 +10,8 @@ export const dashboardRoutes=[{
 {
     id:2,
     name:'transactions',
-    path:'/transations',
-    component:Home
+    path:'/transactions',
+    component:Transactions
 },
 {
     id:3,

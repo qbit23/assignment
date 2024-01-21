@@ -2,15 +2,18 @@ export const sidebarLinks=[
     {
         id:1,
         name:'Home',
-        route:'/home'
+        route:'/home',
+        icon:'home'
     },
     {
-        id:1,
-        name:'Home',
-        route:'/home'
+        id:2,
+        name:'Transactions',
+        route:'/transactions',
+        icon:'format_list_bulleted'
     },{
-        id:1,
-        name:'Home',
-        route:'/home'
+        id:3,
+        name:'Cards',
+        route:'/cards',
+        icon:'home'
     }
 ]
