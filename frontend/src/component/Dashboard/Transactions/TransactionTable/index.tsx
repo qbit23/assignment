@@ -1,8 +1,13 @@
+import { useState } from "react"
 import { Table,TableHeader,TableRow,TableBody,TableHead,TableCell } from "../../../common/Table"
 import { tableData } from "../../../../constants/tableData"
+import Portal from "../../../common/Portal"
+import TransactionDescriptionModal from "../TransactionModals/TransactionDescriptionModal"
 
 export default function TransactionTable() {
+    const [transactionModal,setTransactionModal]=useState(false)
   return (
+    <>
   <Table className="relative">
     <TableHeader>
         <TableRow className="relative">
@@ -30,7 +35,7 @@ export default function TransactionTable() {
     <TableBody >
         {
             tableData.map((data,index)=>({...data,id:index+1})).map(data=>(
-                <TableRow key={data.id} className="hover:bg-[#F2F2F2] cursor-pointer ">
+                <TableRow key={data.id} className="hover:bg-[#F2F2F2] cursor-pointer " onClick={()=>setTransactionModal(true)}>
                     <TableCell>
                         {data.Date}
                     </TableCell>
@@ -51,5 +56,9 @@ export default function TransactionTable() {
         }
     </TableBody>
   </Table>
+  {transactionModal&&<Portal>
+    <TransactionDescriptionModal onClose={()=>setTransactionModal(false)}/>
+  </Portal>}
+    </>
   )
 }
