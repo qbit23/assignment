@@ -16,11 +16,9 @@ const (
 type Transaction struct {
 	gorm.Model
 
-	UserID          uint          `json:"user_id"`
-	User            User          `gorm:"foreignKey:UserID"`
 	Date            time.Time     `json:"date"`
-	From            time.Time     `json:"from"`
-	To              time.Time     `json:"to"`
+	From            string        `json:"from"`
+	To              string        `json:"to"`
 	Amount          float64       `json:"amount"`
 	Account         string        `json:"account"`
 	BankDescription string        `json:"bank_description"`

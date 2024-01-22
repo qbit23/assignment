@@ -18,10 +18,9 @@ services:
     ports:
       - "8000:8080"
     environment:
-      DB_HOST: postgres
+      DB_HOST: postgres_db
       DB_PORT: "5432"
       DB_USER: machnet_admin
       DB_PASSWORD: password
-      DB_NAME: mydatabase
 volumes:
   postgres-data-machnet:
