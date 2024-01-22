@@ -7,3 +7,13 @@ type PaginationResponse struct {
 	TotalPages  int         `json:"total_pages"`
 	Data        interface{} `json:"data"`
 }
+
+func NewPaginationResponse(totalCount, pageSize, currentPage int, data interface{}) *PaginationResponse {
+	return &PaginationResponse{
+		TotalCount:  totalCount,
+		PageSize:    pageSize,
+		CurrentPage: currentPage,
+		TotalPages:  (totalCount + pageSize - 1) / pageSize,
+		Data:        data,
+	}
+}

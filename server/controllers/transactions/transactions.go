@@ -1,23 +1,29 @@
 package transactions
 
 import (
-	"machnet/database"
-	"machnet/model"
+	"machnet/services"
+	"strconv"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 func HandleGetTransactions(c *fiber.Ctx) error {
-	var transactions []model.Transaction
-	result := database.Database.
-		Omit("CreatedAt", "UpdatedAt", "DeletedAt").
-		Limit(25).
-		Find(&transactions)
+	currentPage, err := strconv.Atoi(c.Query("currentPage"))
+	if err != nil || currentPage <= 0 {
+		currentPage = 1
+	}
 
-	if result.Error != nil {
+	pageSize, err := strconv.Atoi(c.Query("pageSize"))
+	if err != nil || pageSize <= 0 {
+		pageSize = 25
+	}
+
+	result, err := services.FetchPaginatedTransasaction(currentPage, pageSize)
+
+	if err != nil {
 		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-			"error": result.Error.Error(),
+			"error": err.Error(),
 		})
 	}
-	return c.JSON(transactions)
+	return c.JSON(result)
 }
