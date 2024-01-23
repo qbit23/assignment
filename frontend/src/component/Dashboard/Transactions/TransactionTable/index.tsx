@@ -66,7 +66,7 @@ export default function TransactionTable() {
     const fetchDataAndSetData = async () => {
       const newData = await fetchData(currentPage, pageSize);
       setTableData(newData["data"]);
-      updatePaginationState(newData["totalCount"], newData["totalPages"]);
+      updatePaginationState(newData["total_count"], newData["total_pages"]);
     };
 
     fetchDataAndSetData();
