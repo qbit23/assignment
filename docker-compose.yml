@@ -16,11 +16,14 @@ services:
       dockerfile: Dockerfile
     container_name: machnet_server
     ports:
-      - "8000:8080"
+      - "8000:8000"
     environment:
       DB_HOST: postgres_db
       DB_PORT: "5432"
       DB_USER: machnet_admin
       DB_PASSWORD: password
+    volumes:
+      - ./server:/app
+    command: ["go", "run", "main.go"]
 volumes:
   postgres-data-machnet:

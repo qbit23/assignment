@@ -15,5 +15,12 @@ func main() {
 	api_v1 := app.Group("/api/v1")
 	database.Connect()
 	transactions.SetupTransactionsRoutes(api_v1.Group("/transactions"))
+
+	app.Get("/health", HandleHealthCheck)
+
 	app.Listen(":8000")
+}
+
+func HandleHealthCheck(c *fiber.Ctx) error {
+	return c.SendString("Welcome to machnet API")
 }
