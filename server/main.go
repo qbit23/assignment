@@ -13,11 +13,13 @@ import (
 	"gorm.io/gorm"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 func main() {
 	godotenv.Load(".env") // For local development purpose
 	app := fiber.New()
+  app.Use(cors.New())
 	api_v1 := app.Group("/api/v1")
 	database.Connect()
 	LoadSampleData(*database.Database)
