@@ -3,12 +3,12 @@
 import React, { createContext, useContext, useState } from 'react';
 
 interface PaginationContextProps {
-  total_count: number;
+  totalCount: number;
   pageSize: number;
   currentPage: number;
-  total_pages: number;
+  totalPages: number;
   onPageChange: (newPage: number) => void;
-  updatePaginationState: (total_count: number, total_pages: number) => void;
+  updatePaginationState: (totalCount: number, totalPages: number) => void;
 
 }
 interface PaginationProviderProps {
@@ -18,12 +18,12 @@ const PaginationContext = createContext<PaginationContextProps | undefined>(unde
 
 export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children }) => {
   const [pagination, setPagination] = useState({
-    total_count: 50,
+    totalCount: 50,
     pageSize: 25,
     currentPage: 1,
-    total_pages: 2,
+    totalPages: 2,
     onPageChange: (newPage: number) => {},
-    updatePaginationState: (total_count: number, total_pages: number) => {},
+    updatePaginationState: (totalCount: number, totalPages: number) => {},
   });
 
   const contextValue: PaginationContextProps = {
@@ -31,8 +31,8 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children
     onPageChange: (newPage: number) => {
       setPagination((prevPagination) => ({ ...prevPagination, currentPage: newPage }));
     },
-    updatePaginationState: (total_count: number, total_pages: number)=>{
-      setPagination((prevPagination: any)=>({...prevPagination, total_count: total_count, total_pages: total_pages}))
+    updatePaginationState: (totalCount: number, totalPages: number)=>{
+      setPagination((prevPagination: any)=>({...prevPagination, totalCount: totalCount, totalPages: totalPages}))
     }
 
   };

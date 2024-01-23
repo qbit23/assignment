@@ -4,10 +4,10 @@ import Pagination from "../../../common/Pagination"
 const Header = () => {
 
   const {
-    total_count,
+    totalCount,
     pageSize,
     currentPage,
-    total_pages,
+    totalPages,
     onPageChange,
   } = usePagination();
 
@@ -21,10 +21,10 @@ const Header = () => {
             <h3>Transactions</h3>
             <div>
               <Pagination
-                  total_count={total_count}
+                  totalCount={totalCount}
                   pageSize={pageSize}
                   currentPage={currentPage}
-                  total_pages={total_pages}
+                  totalPages={totalPages}
                   onPageChange={handlePageChange}
               />
             </div>
