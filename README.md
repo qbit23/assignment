@@ -10,7 +10,7 @@
 
 ![Transaction Table]("./assets/transaction.png")
 ![Error Page]("./assets/error.png")
-![Modal]("./assets/modal.png")
+![Modal]("https://gitlab.com/itrc3/assignment/-/raw/master/assets/error.png?ref_type=heads")
 
 
 [Database documentation link](https://docs.google.com/spreadsheets/d/1sWK8aCZCYfvnmLOMpZN1cN-NrcaqmAREcvryfmqpStk/edit?usp=sharing)
