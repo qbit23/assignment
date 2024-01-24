@@ -21,10 +21,10 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({
   children,
 }) => {
   const [pagination, setPagination] = useState({
-    totalCount: 50,
+    totalCount: 0,
     pageSize: 25,
     currentPage: 1,
-    totalPages: 2,
+    totalPages: 1,
     onPageChange: (newPage: number) => {},
     updatePaginationState: (totalCount: number, totalPages: number) => {},
   });
