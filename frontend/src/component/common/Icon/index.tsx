@@ -1,12 +1,16 @@
-
-interface IIconProps{
-    name:string;
-    className?:string;
-    onClick?:()=>void;
+interface IIconProps {
+  name: string;
+  className?: string;
+  onClick?: () => void;
 }
 
-export default function Icon({name,className,onClick}:IIconProps) {
+export default function Icon({ name, className, onClick }: IIconProps) {
   return (
-    <span className={`material-icons cursor-pointer ${className}`} onClick={onClick}>{name}</span>
-  )
+    <span
+      className={`material-icons cursor-pointer ${className}`}
+      onClick={onClick}
+    >
+      {name}
+    </span>
+  );
 }

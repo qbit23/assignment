@@ -1,6 +1,6 @@
 // PaginationContext.tsx
 
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 interface PaginationContextProps {
   totalCount: number;
@@ -9,14 +9,17 @@ interface PaginationContextProps {
   totalPages: number;
   onPageChange: (newPage: number) => void;
   updatePaginationState: (totalCount: number, totalPages: number) => void;
-
 }
 interface PaginationProviderProps {
   children: React.ReactNode;
 }
-const PaginationContext = createContext<PaginationContextProps | undefined>(undefined);
+const PaginationContext = createContext<PaginationContextProps | undefined>(
+  undefined,
+);
 
-export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children }) => {
+export const PaginationProvider: React.FC<PaginationProviderProps> = ({
+  children,
+}) => {
   const [pagination, setPagination] = useState({
     totalCount: 50,
     pageSize: 25,
@@ -29,12 +32,18 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children
   const contextValue: PaginationContextProps = {
     ...pagination,
     onPageChange: (newPage: number) => {
-      setPagination((prevPagination) => ({ ...prevPagination, currentPage: newPage }));
+      setPagination((prevPagination) => ({
+        ...prevPagination,
+        currentPage: newPage,
+      }));
     },
-    updatePaginationState: (totalCount: number, totalPages: number)=>{
-      setPagination((prevPagination: any)=>({...prevPagination, totalCount: totalCount, totalPages: totalPages}))
-    }
-
+    updatePaginationState: (totalCount: number, totalPages: number) => {
+      setPagination((prevPagination: any) => ({
+        ...prevPagination,
+        totalCount: totalCount,
+        totalPages: totalPages,
+      }));
+    },
   };
 
   return (
@@ -47,7 +56,7 @@ export const PaginationProvider: React.FC<PaginationProviderProps> = ({ children
 export const usePagination = () => {
   const context = useContext(PaginationContext);
   if (!context) {
-    throw new Error('usePagination must be used within a PaginationProvider');
+    throw new Error("usePagination must be used within a PaginationProvider");
   }
   return context;
 };

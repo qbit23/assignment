@@ -8,17 +8,17 @@ import {
   TableCell,
 } from "../../../common/Table";
 import Portal from "../../../common/Portal";
-import {TransactionDescriptionModal} from "../TransactionModals/TransactionDescriptionModal";
+import { TransactionDescriptionModal } from "../TransactionModals/TransactionDescriptionModal";
 import { usePagination } from "../../../common/Pagination/PaginationContext";
 
 const fetchData = async (
   currentPage: number,
-  pageSize: number
+  pageSize: number,
 ): Promise<any> => {
   // Make your API call here and return the data
   const baseUrl = "http://localhost:8000/api/v1/transactions";
   const response = await fetch(
-    `${baseUrl}?currentPage=${currentPage}&pageSize=${pageSize}`
+    `${baseUrl}?currentPage=${currentPage}&pageSize=${pageSize}`,
   );
   console.log(response);
   const data = await response.json();
@@ -58,32 +58,32 @@ export interface TableDataItem {
 
 const nullTableDataItem = (): TableDataItem => {
   return {
-    ID: '',
-    CreatedAt: '',
-    UpdatedAt: '',
-    DeletedAt: '',
-    date: '',
-    from: '',
-    to: '',
+    ID: "",
+    CreatedAt: "",
+    UpdatedAt: "",
+    DeletedAt: "",
+    date: "",
+    from: "",
+    to: "",
     amount: 0,
-    account: '',
-    bank_description: '',
-    payment_method: '',
-    payment_status: '',
+    account: "",
+    bank_description: "",
+    payment_method: "",
+    payment_status: "",
   };
 };
-
 
 export default function TransactionTable() {
   const [transactionModal, setTransactionModal] = useState(false);
   const [transactionData, setTableData] = useState<TableDataItem[]>([]);
-  const [selectedRowData, setSelectedRowData] = useState<TableDataItem>(nullTableDataItem);
+  const [selectedRowData, setSelectedRowData] =
+    useState<TableDataItem>(nullTableDataItem);
 
   const { pageSize, currentPage, updatePaginationState } = usePagination();
 
   const handleRowClick = (rowData: TableDataItem) => {
     setSelectedRowData(rowData);
-    setTransactionModal(true)
+    setTransactionModal(true);
   };
 
   useEffect(() => {
@@ -109,7 +109,7 @@ export default function TransactionTable() {
         <TableBody>
           {transactionData.map((data) => (
             <TableRow
-              key={data.ID??1}
+              key={data.ID ?? 1}
               className="hover:bg-[#F2F2F2] cursor-pointer "
               onClick={() => handleRowClick(data)}
             >

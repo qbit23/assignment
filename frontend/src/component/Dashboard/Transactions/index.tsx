@@ -1,6 +1,6 @@
-import Header from "./Header"
-import TransactionTable from "./TransactionTable"
-import { PaginationProvider } from "../../common/Pagination/PaginationContext"
+import Header from "./Header";
+import TransactionTable from "./TransactionTable";
+import { PaginationProvider } from "../../common/Pagination/PaginationContext";
 const Transactions = () => {
   return (
     <div className="p-4 mx-auto">
@@ -10,9 +10,8 @@ const Transactions = () => {
           <TransactionTable />
         </div>
       </PaginationProvider>
-      
     </div>
-  )
-}
+  );
+};
 
-export default Transactions
+export default Transactions;

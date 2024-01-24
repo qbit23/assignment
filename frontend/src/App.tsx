@@ -1,20 +1,18 @@
-
 import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-import Dashboard from "./view/Dashboard"
+import { useNavigate } from "react-router-dom";
+import Dashboard from "./view/Dashboard";
 function App() {
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate('/transactions')
+    navigate("/transactions");
   }, [history]);
-  
+
   return (
     <>
-     <Dashboard />
+      <Dashboard />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
