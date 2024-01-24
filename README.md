@@ -7,10 +7,11 @@
 ### Screenshots
 
 1. Main Transaction Table
-
-![Transaction Table]("./assets/transaction.png")
-![Error Page]("./assets/error.png")
-![Modal]("https://gitlab.com/itrc3/assignment/-/raw/master/assets/error.png?ref_type=heads")
+![Transaction Table](assets/transactions.png "Transaction Table")
+2. Modal
+![Modal](assets/modal.png "Modal Page")
+3. Error Page
+![Error Page](assets/error.png "Error Page")
 
 
 [Database documentation link](https://docs.google.com/spreadsheets/d/1sWK8aCZCYfvnmLOMpZN1cN-NrcaqmAREcvryfmqpStk/edit?usp=sharing)
