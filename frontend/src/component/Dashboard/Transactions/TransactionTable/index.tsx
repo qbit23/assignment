@@ -56,10 +56,28 @@ export interface TableDataItem {
   payment_status: string;
 }
 
+const nullTableDataItem = (): TableDataItem => {
+  return {
+    ID: '',
+    CreatedAt: '',
+    UpdatedAt: '',
+    DeletedAt: '',
+    date: '',
+    from: '',
+    to: '',
+    amount: 0,
+    account: '',
+    bank_description: '',
+    payment_method: '',
+    payment_status: '',
+  };
+};
+
+
 export default function TransactionTable() {
   const [transactionModal, setTransactionModal] = useState(false);
   const [transactionData, setTableData] = useState<TableDataItem[]>([]);
-  const [selectedRowData, setSelectedRowData] = useState<TableDataItem>();
+  const [selectedRowData, setSelectedRowData] = useState<TableDataItem>(nullTableDataItem);
 
   const { pageSize, currentPage, updatePaginationState } = usePagination();
 
