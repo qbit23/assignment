@@ -3,6 +3,7 @@
 1. The backend and the database can be run using docker-compose `docker-compose up`
 2. Goto frontend directory and install required dependencies using `yarn install` and run the development server using `yarn run dev`
 
+Note: A sample data is loaded into the database everytime we run the server. please goto `localhost:8000/health` to check if the server is up and running.
 
 ### Screenshots
 
