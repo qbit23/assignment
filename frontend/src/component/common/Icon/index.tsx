@@ -7,7 +7,7 @@ interface IIconProps {
 export default function Icon({ name, className, onClick }: IIconProps) {
   return (
     <span
-      className={`material-icons cursor-pointer ${className}`}
+      className={`material-icons cursor-pointer text-gray-600 ${className}`}
       onClick={onClick}
     >
       {name}
