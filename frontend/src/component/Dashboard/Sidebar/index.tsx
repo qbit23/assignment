@@ -15,7 +15,7 @@ export default function Sidebar() {
             pathname === link.route && "bg-gray-300"
           }`}
         >
-          <Icon name={link.icon} className="text-[24px]" />
+          <Icon name={link.icon} className={`text-[24px] ${pathname === link.route && "text-gray-950"}`} />
           <span>{link.name}</span>
         </NavLink>
       ))}
