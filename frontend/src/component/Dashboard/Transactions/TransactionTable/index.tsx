@@ -16,7 +16,7 @@ const fetchData = async (
   pageSize: number,
 ): Promise<any> => {
   // Make your API call here and return the data
-  const baseUrl = "http://localhost:8000/api/v1/transactions";
+  const baseUrl = "http://127.0.0.1:8000/api/v1/transactions";
   const response = await fetch(
     `${baseUrl}?currentPage=${currentPage}&pageSize=${pageSize}`,
   );
