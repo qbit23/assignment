@@ -8,7 +8,7 @@ import {
   TableCell,
 } from "../../../common/Table";
 import Portal from "../../../common/Portal";
-import TransactionDescriptionModal from "../TransactionModals/TransactionDescriptionModal";
+import {TransactionDescriptionModal} from "../TransactionModals/TransactionDescriptionModal";
 import { usePagination } from "../../../common/Pagination/PaginationContext";
 
 const fetchData = async (
@@ -41,7 +41,7 @@ const headers: string[] = [
   "Payment Method",
 ];
 
-interface TableDataItem {
+export interface TableDataItem {
   ID: string;
   CreatedAt: string;
   UpdatedAt: string;
@@ -58,9 +58,15 @@ interface TableDataItem {
 
 export default function TransactionTable() {
   const [transactionModal, setTransactionModal] = useState(false);
+  const [transactionData, setTableData] = useState<TableDataItem[]>([]);
+  const [selectedRowData, setSelectedRowData] = useState<TableDataItem>();
+
   const { pageSize, currentPage, updatePaginationState } = usePagination();
 
-  const [transactionData, setTableData] = useState<TableDataItem[]>([]);
+  const handleRowClick = (rowData: TableDataItem) => {
+    setSelectedRowData(rowData);
+    setTransactionModal(true)
+  };
 
   useEffect(() => {
     const fetchDataAndSetData = async () => {
@@ -85,9 +91,9 @@ export default function TransactionTable() {
         <TableBody>
           {transactionData.map((data) => (
             <TableRow
-              key={data.ID}
+              key={data.ID??1}
               className="hover:bg-[#F2F2F2] cursor-pointer "
-              onClick={() => setTransactionModal(true)}
+              onClick={() => handleRowClick(data)}
             >
               <TableCell>{formatDate(data.date)}</TableCell>
               <TableCell>
@@ -111,6 +117,7 @@ export default function TransactionTable() {
       {transactionModal && (
         <Portal>
           <TransactionDescriptionModal
+            dataItem={selectedRowData}
             onClose={() => setTransactionModal(false)}
           />
         </Portal>

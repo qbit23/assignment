@@ -34,7 +34,7 @@ export const dashboardRoutes=[{
 {
     id:6,
     name:'Accounts',
-    path:'/transations',
+    path:'/accounts',
     component:Error404
 },
 ]
